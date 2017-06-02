@@ -1,2 +1,8 @@
 #!/bin/bash
-docker run -it --rm --name wc-php-cli wc-php-cli-img
+CONTAINER_NAME=wc-php-cli
+
+printf "\nBuilding image...\n"
+docker build -t $CONTAINER_NAME-img .
+
+printf "\nStarting container...\n"
+docker run -it --rm --name $CONTAINER_NAME $CONTAINER_NAME-img
